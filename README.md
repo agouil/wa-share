@@ -2,10 +2,10 @@
 A simple implementation of WhatsApp sharing button. The code creates an image button. It can be configured to create button (w/o an image) or label instead.
 
 ## Installation
-1. Copy the ```src``` directory to your website static files directory.
+1. Copy the ```src/js``` directory to your website static files directory.
 2. Add this to the ```<head>``` element of the page:
 ```html
-<script type="text/javascript" src="src/js/wa-share.js"></script>
+<script type="text/javascript" src="js/wa-share.js"></script>
 ```
 3. Add this inside the ```<body>``` element of the page:
 ```html
