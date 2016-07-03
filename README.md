@@ -1,5 +1,5 @@
 # wa-share
-A simple implementation of WhatsApp sharing button
+A simple implementation of WhatsApp sharing button. The code creates an image button. It can be configured to create button (w/o an image) or label instead.
 
 ## Installation
 1. Copy the ```src``` directory to your website static files directory.
