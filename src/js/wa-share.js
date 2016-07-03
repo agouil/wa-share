@@ -1,32 +1,35 @@
-var WABTN = function() {
-    this.show = ((navigator.userAgent.match(/Android|iPhone/i) && !navigator.userAgent.match(/iPod|iPad/i)) ? true : false);
-    this.btnImage = "./src/img/whatsapp.png";
-    this.style = null;
-}
-
-WABTN.prototype.share = function(data) {
-    if (data === null || typeof data !== "object") {
-        return;
-    }
-    if (!(data.id && data.text)) {
-        return;
+(function(window) {
+    var WABTN = function() {
+        this.show = ((navigator.userAgent.match(/Android|iPhone/i) && !navigator.userAgent.match(/iPod|iPad/i)) ? true : false);
+        this.btnImage = "./src/img/whatsapp.png";
+        this.style = null;
     }
 
-    var img = document.createElement("img");
-    img.src = this.btnImage;
-    img.style.width = "100%";
+    WABTN.prototype.share = function(data) {
+        if (data === null || typeof data !== "object") {
+            return;
+        }
+        if (!(data.id && data.text)) {
+            return;
+        }
 
-    var btn = document.createElement("a");
-    btn.href = "whatsapp://send?text=" + encodeURIComponent(data.text);
-    btn.className += " wasend";
-    btn.appendChild(img)
+        var img = document.createElement("img");
+        img.src = this.btnImage;
+        img.style.width = (data.img_size ? (data.img_size == "sm" ? "25%" : (data.img_size == "lg" ? "100%" : "50%")) : "50%");
 
-    var element = document.getElementById(data.id);
-    element.style.width = "250px";
-    element.appendChild(btn)
-    if (!this.show) {
-        element.style.display = "none";
+        var btn = document.createElement("a");
+        btn.href = "whatsapp://send?text=" + encodeURIComponent(data.text);
+        btn.className += " wasend";
+        btn.appendChild(img)
+
+        var element = document.getElementById(data.id);
+        element.style.width = "250px";
+        element.appendChild(btn)
+        if (!this.show) {
+            element.style.display = "none";
+        }
     }
-}
 
-WABTN = new WABTN();
+    window.WABTN = new WABTN();
+
+})(window);
