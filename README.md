@@ -13,7 +13,8 @@ A simple implementation of WhatsApp sharing button. The code creates an image bu
 <script type="text/javascript">
     WABTN.share({
         id: "<element-id>",
-        text: "<text-to-share>"
+        text: "<text-to-share>",
+        size: "<sm | md | lg>"
     });
 </script>
 ```
